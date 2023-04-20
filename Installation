@@ -1,0 +1,31 @@
+# Install and configure ECS-CLI 
+For ECS Installation, use this link.
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI.html
+
+#To Create the Cluster
+ecs-cli configure --cluster <cluster_name e.g ec2-ecs-lab> --default-launch-type EC2 --config-name <cluster_config_name e.g ec2-ecs-lab> --region <e.g us-east-1>
+
+# Congiure the ECS CLI with the user acct access and secret-access keys
+ecs-cli configure profile --access-key AKIAQMFDPPZG2A4BQR7B --secret-key ABOz+3mglw+82+Cec39VYb1zsd91W++jXsRZrncL --profile-name ecs-cli-profile
+# Create your cluster with your ECS CLI up command
+ ecs-cli up --capability-iam --vpc vpc-5234gd87345n346dm4t6 --keypair <e.g glproject> --size 2 --instance-type t2.micro --cluster-config ec2-ecs-lab --ecs-profile 
+ ecs-cli-profile --subnets subnet-83457hsd673456h45m56,subnet-7345h845n845j458
+
+#Create a Docker compose file and your ecs params file in a new Directory
+  - docker-compose.yml (defines the images for the containers that you want to run)
+  - ecs-params.yml (defines the task definition)
+  
+# Deploy the compose file to your cluster by running the command
+ecs-cli compose up --create-log-groups --cluster-config ec2-ecs-lab --ecs-profile ecs-cli-profile
+
+# To stop the application
+ecs-cli compose down --cluster-config ec2-ecs-lab --ecs-profile ecs-cli-profile
+
+# To scale the task on our cluster
+ecs-cli compose scale 2 --cluster-config ec2-ecs-lab --ecs-profile ecs-cli-profile
+
+# To create a service so that whenever our containers are down the service will bring them back, we run the command
+ecs-cli compose service up --cluster-config ec2-ecs-lab --ecs-profile ecs-cli-profile
+
+# To list out the running task
+ecs-cli ps --cluster-config ec2-ecs-lab --ecs-profile ecs-cli-profile
