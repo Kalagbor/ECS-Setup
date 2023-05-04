@@ -6,7 +6,7 @@ https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI.html
 ecs-cli configure --cluster <cluster_name e.g ec2-ecs-lab> --default-launch-type EC2 --config-name <cluster_config_name e.g ec2-ecs-lab> --region <e.g us-east-1>
 
 # Congiure the ECS CLI with the user acct access and secret-access keys
-ecs-cli configure profile --access-key <6723587gqwrkjer724942> --secret-key <871247bdf82357bsdfh> --profile-name ecs-cli-profile
+ecs-cli configure profile --access-key <access-key> --secret-key <secret-accesskey> --profile-name ecs-cli-profile
 # Create your cluster with your ECS CLI up command
  ecs-cli up --capability-iam --vpc vpc-5234gd87345n346dm4t6 --keypair <e.g glproject> --size 2 --instance-type t2.micro --cluster-config ec2-ecs-lab --ecs-profile 
  ecs-cli-profile --subnets subnet-83457hsd673456h45m56,subnet-7345h845n845j458
