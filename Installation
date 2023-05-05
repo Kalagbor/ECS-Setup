@@ -30,8 +30,8 @@ ecs-cli compose service up --cluster-config ec2-ecs-lab --ecs-profile ecs-cli-pr
 # To list out the running task
 ecs-cli ps --cluster-config ec2-ecs-lab --ecs-profile ecs-cli-profile
 
-TO CLEAN FOLLOW THIS PROCEDURE
+TO CLEAN UP ENVIRONMENT FOLLOW THIS PROCEDURE
 #Remove the service
 ecs-cli compose service rm --cluster-config ec2-ecs-lab --ecs-profile ecs-cli-profile
 # Bring down the cluster
-ecs-cli doen --force --cluster-config ec2-ecs-lab --ecs-profile ecs-cli-profile
+ecs-cli down --force --cluster-config ec2-ecs-lab --ecs-profile ecs-cli-profile
